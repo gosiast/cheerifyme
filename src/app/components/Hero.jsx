@@ -2,8 +2,8 @@ import React from "react";
 
 const Hero = () => {
 	return (
-		<div className="bg-blue-100 m-10">
-			<div className="container text-black">
+		<main className="m-2">
+			<div className="container text-white">
 				<h1 className="text-4xl">
 					Welcome to <strong>Cheerify.me</strong>
 				</h1>
@@ -34,7 +34,20 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+			<section>
+				Remember, if you need additional support and/or you’re struggling with
+				mental health, it’s always best to contact a professional. Here you can
+				find some useful links https://checkpointorg.com/global/ or check in
+				your local community. You’re not alone, asking for help is a sign of
+				strength.
+			</section>
+			<footer>
+				This is an{" "}
+				<a href="https://github.com/gosiast/cheerifyme">open-source</a> project
+				and was created by{" "}
+				<a href="https://github.com/gosiast">Malgorzata Stano</a>
+			</footer>
+		</main>
 	);
 };
 
