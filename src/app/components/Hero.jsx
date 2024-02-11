@@ -2,8 +2,8 @@ import React from "react";
 
 const Hero = () => {
 	return (
-		<div>
-			<div className="container bg-blue">
+		<div className="bg-blue-100 m-10">
+			<div className="container text-black">
 				<h1 className="text-4xl">
 					Welcome to <strong>Cheerify.me</strong>
 				</h1>
