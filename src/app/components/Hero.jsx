@@ -4,13 +4,18 @@ const Hero = () => {
 	return (
 		<main className="m-2">
 			<div className="container text-white">
-				<h1 className="text-4xl">
-					Welcome to <strong>Cheerify.me</strong>
-				</h1>
-				<img
-					src="./src/app/cheerifyme_logo.png"
-					alt=" logo with cartoon of a smiley face and headphones"
-				/>
+				<section className="col-span-5 place-self-center mt-4 lg:mt-0">
+					<h1 className="text-4xl">
+						Welcome to <strong>Cheerify.me</strong>
+					</h1>
+					<div className="w-[250px] h-[250px] lg:w-[350px] lg:h-[400px] relative">
+						<img
+							className=""
+							src="/cheerifyme_logo.png"
+							alt=" logo with cartoon of a smiley face and headphones"
+						/>
+					</div>
+				</section>
 				<div>
 					<p>your go-to place, to make your day a little brighter ☀️</p>
 					<p>
