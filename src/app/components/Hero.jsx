@@ -1,8 +1,9 @@
 import React from "react";
+import Footer from "./Footer";
 
 const Hero = () => {
 	return (
-		<main className="m-0 p-0">
+		<main className="m-2 p-10">
 			<div className="container relative text-center text-black">
 				<section className="flex items-center justify-center">
 					<h1 className="text-4xl">
@@ -41,24 +42,7 @@ const Hero = () => {
 					</button>
 				</div>
 			</div>
-			<footer className="text-sm mt-2 text-center text-black">
-				<section className="italic bg-slate-500 underline decoration-sky-200/30 p-2 rounded-md">
-					If you need additional support and/or you’re struggling with mental
-					health, it’s always best to contact a professional. <br /> Here you
-					can find some useful links https://checkpointorg.com/global/ or check
-					in your local community. You’re not alone,{" "}
-					<strong>asking for help is a sign of strength.</strong>
-				</section>
-				<br />
-				This is an{" "}
-				<a href="https://github.com/gosiast/cheerifyme" target="_blank">
-					open-source
-				</a>{" "}
-				project and was created by{" "}
-				<a href="https://github.com/gosiast" target="_blank">
-					Malgorzata Stano
-				</a>
-			</footer>
+			<Footer />
 		</main>
 	);
 };
