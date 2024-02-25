@@ -16,7 +16,7 @@ const Hero = () => {
 						/>
 					</div>
 				</section>
-				<div className="mt-4 p-2 flex items-center">
+				<div className="mt-4 p-2 leading-8 flex items-center">
 					<p>
 						your go-to place, to make your day a little brighter ☀️
 						<br />

@@ -14,6 +14,7 @@ module.exports = {
 			},
 			colors: {
 				backgroundCustomColor: "#DDF9FF", // Add your custom color with the desired hex value
+				buttonColor: "#1A8299",
 			},
 		},
 	},
