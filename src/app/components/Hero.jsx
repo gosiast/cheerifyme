@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
 	return (
 		<main className="m-0 p-0 bg-black">
-			<div className="container text-white">
+			<div className="container relative text-center text-white">
 				<section className="flex items-center justify-center">
 					<h1 className="text-4xl">
 						Welcome to <strong>Cheerify.me</strong>
@@ -15,7 +15,7 @@ const Hero = () => {
 						/>
 					</div>
 				</section>
-				<div className="p-2 flex items-center">
+				<div className="mt-4 p-2 flex items-center">
 					<p>
 						your go-to place, to make your day a little brighter ☀️
 						<br />
@@ -34,9 +34,9 @@ const Hero = () => {
 						<br />
 						See for yourself what&apos;s waiting for you here! 🤩
 					</p>
-					<div className="">
-						<button className="text-white border-4 p-4">ENTER</button>
-					</div>
+				</div>
+				<div className="">
+					<button className="text-white border-4 p-4">ENTER</button>
 				</div>
 			</div>
 			<footer className="text-sm mt-2 text-center">
