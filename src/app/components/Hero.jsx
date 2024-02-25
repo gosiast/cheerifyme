@@ -49,9 +49,13 @@ const Hero = () => {
 				</section>
 				<br />
 				This is an{" "}
-				<a href="https://github.com/gosiast/cheerifyme">open-source</a> project
-				and was created by{" "}
-				<a href="https://github.com/gosiast">Malgorzata Stano</a>
+				<a href="https://github.com/gosiast/cheerifyme" target="_blank">
+					open-source
+				</a>{" "}
+				project and was created by{" "}
+				<a href="https://github.com/gosiast" target="_blank">
+					Malgorzata Stano
+				</a>
 			</footer>
 		</main>
 	);
