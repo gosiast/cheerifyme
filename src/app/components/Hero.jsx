@@ -2,8 +2,8 @@ import React from "react";
 
 const Hero = () => {
 	return (
-		<main className="m-0 p-0 bg-black">
-			<div className="container relative text-center text-white">
+		<main className="m-0 p-0">
+			<div className="container relative text-center text-black">
 				<section className="flex items-center justify-center">
 					<h1 className="text-4xl">
 						Welcome to <strong>Cheerify.me</strong>
@@ -36,11 +36,13 @@ const Hero = () => {
 					</p>
 				</div>
 				<div className="">
-					<button className="text-white border-4 p-4">ENTER</button>
+					<button className="bg-[#1A8299] text-white border-2 p-4 rounded-md">
+						ENTER
+					</button>
 				</div>
 			</div>
-			<footer className="text-sm mt-2 text-center">
-				<section className="italic bg-slate-700 underline decoration-sky-500/30 p-2 rounded-sm">
+			<footer className="text-sm mt-2 text-center text-black">
+				<section className="italic bg-slate-500 underline decoration-sky-200/30 p-2 rounded-md">
 					If you need additional support and/or you’re struggling with mental
 					health, it’s always best to contact a professional. <br /> Here you
 					can find some useful links https://checkpointorg.com/global/ or check
