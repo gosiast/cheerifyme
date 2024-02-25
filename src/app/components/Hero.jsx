@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
+import FeelPage from "./FeelPage";
 
 const Hero = () => {
 	return (
@@ -41,6 +42,7 @@ const Hero = () => {
 					<button className="bg-[#1A8299] text-white border-2 p-4 rounded-md">
 						ENTER
 					</button>
+					<FeelPage />
 				</div>
 			</div>
 			<Footer />
