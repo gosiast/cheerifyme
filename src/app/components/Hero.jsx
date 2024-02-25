@@ -9,7 +9,7 @@ const Hero = () => {
 					<h1 className="text-4xl">
 						Welcome to <strong>Cheerify.me</strong>
 					</h1>
-					<div className="w-[100px] h-[100px] lg:w-[200px] lg:h-[200px] relative">
+					<div className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] relative mb-10">
 						<img
 							src="/cheerifyme_logo.png"
 							alt=" logo with cartoon of a smiley face and headphones"
