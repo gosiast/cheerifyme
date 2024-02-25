@@ -16,13 +16,14 @@ const Hero = () => {
 						/>
 					</div>
 				</section>
-				<div className="mt-4 p-2 leading-8 flex items-center">
-					<p>
+				<div className="text-lg mt-4 p-2 leading-8 flex items-center">
+					<p className="">
 						your go-to place, to make your day a little brighter ☀️
 						<br />
 						Imagine this: you&apos;re feeling a little down, in need of a
 						pick-me-up. Or maybe you're bursting with energy and just need the
-						perfect song to get your booty moving. Well, guess what? Cheerify.me
+						perfect song to get your booty moving. Well, guess what?{" "}
+						<strong>Cheerify.me </strong>
 						has got you covered! 🎶
 						<br />
 						Let me share something about myself. When I find myself experiencing
