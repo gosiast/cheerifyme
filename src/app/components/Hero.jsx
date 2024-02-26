@@ -1,9 +1,10 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Footer from "./Footer";
 import FeelPage from "./FeelPage";
 
 const Hero = () => {
-	const [showFeelPage, setShowFeelPage] = useState(true);
+	const [showFeelPage, setShowFeelPage] = useState(false);
 
 	// Function to handle button click
 	const handleClick = () => {
