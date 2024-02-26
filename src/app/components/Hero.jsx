@@ -3,6 +3,12 @@ import Footer from "./Footer";
 import FeelPage from "./FeelPage";
 
 const Hero = () => {
+	const [showFeelPage, setShowFeelPage] = useState(true);
+
+	// Function to handle button click
+	const handleClick = () => {
+		setShowFeelPage(true); // Set showFeelPage state to true when button is clicked
+	};
 	return (
 		<main className="m-2 p-10">
 			<div className="container relative text-center text-black">
@@ -38,12 +44,16 @@ const Hero = () => {
 						See for yourself what&apos;s waiting for you here! 🤩
 					</p>
 				</div>
-				<div className="">
-					<button className="bg-[#1A8299] text-white border-2 p-4 rounded-md">
+				{showFeelPage ? (
+					<FeelPage /> // Display FeelPage component if showFeelPage is true
+				) : (
+					<button
+						className="bg-[#1A8299] text-white border-2 p-4 rounded-md"
+						onClick={handleClick} // Call handleClick function when button is clicked
+					>
 						ENTER
 					</button>
-					<FeelPage />
-				</div>
+				)}
 			</div>
 			<Footer />
 		</main>
