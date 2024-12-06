@@ -1,8 +1,5 @@
 # Cheerify.me
 
-![Cheerify.me logo with cartoon of a smiley face and headphones](path_to_logo_image)  
-*Replace with actual logo image path*
-
 **Cheerify.me** - Your go-to place to make your day a little brighter ☀️
 
 ## Description
@@ -121,16 +118,9 @@ Quotes: Sources of wisdom and inspiration, especially during difficult times.
 **Getting Started**
 First, run the development server:
 
-bash
-Copy code
 npm run dev
-# or
+
+then:
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 Open http://localhost:3000 with your browser to see the result.
-
-You can start editing the page by modifying app/page.js. The page auto-updates as you edit the file.
-
