@@ -8,7 +8,6 @@
 		"start": "next start",
 		"lint": "next lint",
 		"commit": "git-cz"
-
 	},
 	"dependencies": {
 		"next": "14.1.0",
@@ -21,6 +20,7 @@
 		"cz-customizable": "^7.3.0",
 		"eslint": "^8",
 		"eslint-config-next": "14.1.0",
+		"eslint-config-prettier": "^9.1.0",
 		"postcss": "^8",
 		"tailwindcss": "^3.3.0"
 	}

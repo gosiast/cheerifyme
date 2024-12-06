@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
 import FeelPage from "./FeelPage";
+import Image from "next/image";
 
 const Hero = () => {
 	const [showFeelPage, setShowFeelPage] = useState(false);
@@ -18,9 +19,11 @@ const Hero = () => {
 						Welcome to <strong>Cheerify.me</strong>
 					</h1>
 					<div className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] relative mb-10">
-						<img
+						<Image
 							src="/cheerifyme_logo.png"
 							alt=" logo with cartoon of a smiley face and headphones"
+							width={150}
+							height={150}
 						/>
 					</div>
 				</section>
@@ -28,9 +31,10 @@ const Hero = () => {
 					<p className="">
 						your go-to place, to make your day a little brighter ☀️
 						<br />
-						Imagine this: you&apos;re feeling a little down, in need of a
-						pick-me-up. Or maybe you're bursting with energy and just need the
-						perfect song to get your booty moving. Well, guess what?{" "}
+						Imagine this: you&apos;re feeling a little down, in need of a //
+						eslint-disable-next-line react/no-unescaped-entities pick-me-up. Or
+						maybe you&apos;re bursting with energy and just need the perfect
+						song to get your booty moving. Well, guess what?{" "}
 						<strong>Cheerify.me </strong>
 						has got you covered! 🎶
 						<br />
@@ -38,9 +42,9 @@ const Hero = () => {
 						any emotion, from sadness to overjoy, I often turn on music and
 						start dancing (FYI – I&apos;m a big fan of bachata 💃). My room is
 						filled with motivational quotes that never fail to lift my spirits.
-						They've helped me through both breakdowns and breakthroughs in life
-						✨ It got me thinking – why not create a place where everyone can
-						find that same kind of joy and inspiration? 💡
+						They&apos;ve helped me through both breakdowns and breakthroughs in
+						life ✨ It got me thinking – why not create a place where everyone
+						can find that same kind of joy and inspiration? 💡
 						<br />
 						See for yourself what&apos;s waiting for you here! 🤩
 					</p>
