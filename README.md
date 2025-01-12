@@ -41,8 +41,6 @@ markdown
 Copy code
 # Cheerify.me
 
-![Cheerify.me logo with cartoon of a smiley face and headphones](path_to_logo_image)  
-*Replace with actual logo image path*
 
 **Cheerify.me** - Your go-to place to make your day a little brighter ☀️
 
