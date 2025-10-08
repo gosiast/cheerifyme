@@ -1,47 +1,30 @@
-import React from "react";
-
-const Footer: React.FC = () => {
+export default function Footer() {
 	return (
-		<footer className="footer">
-			<div className="container p-10 flex justify-center text-sm mt-2 text-center text-black">
-				<div className="flex flex-col items-center">
-					<section className="italic bg-slate-500 underline decoration-sky-200/30 p-2 rounded-md">
-						If you need additional support and/or you’re struggling with mental
-						health, it’s always best to contact a professional. <br /> Here you
-						can find some useful links to
-						<a
-							href="https://www.thecalmzone.net/international-mental-health-charities"
-							className="text-bold"
-						>
-							Mental Health Charities
-						</a>{" "}
-						around the world or check in your local community. You’re not alone,{" "}
-						<strong>asking for help is a sign of strength.</strong>
-					</section>
-					<section>
-						<br />
-						This is an{" "}
-						<a
-							href="https://github.com/gosiast/cheerifyme"
-							target="_blank"
-							rel="noopener noreferrer"
-							className=""
-						>
-							open-source
-						</a>{" "}
-						project and was created by{" "}
-						<a
-							href="https://github.com/gosiast"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Malgorzata Stano
-						</a>
-					</section>
-				</div>
-			</div>
+		<footer className="text-center text-sm mt-10 text-gray-700">
+			<p className=" mx-auto bg-white/60 backdrop-blur p-4 rounded-xl">
+				If you’re struggling with mental health, please reach out to a
+				professional. You’re not alone —{" "}
+				<strong>asking for help is strength 💪</strong>
+				<br />
+				<a
+					href="https://www.thecalmzone.net/international-mental-health-charities"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="underline text-cheerifyTeal hover:text-cheerifyPink"
+				>
+					Mental Health Charities
+				</a>
+			</p>
+			<p className="mt-4">
+				Built with ❤️ by{" "}
+				<a
+					href="https://github.com/gosiast"
+					className="underline text-cheerifyPink"
+					target="_blank"
+				>
+					Malgorzata Stano
+				</a>
+			</p>
 		</footer>
 	);
-};
-
-export default Footer;
+}
