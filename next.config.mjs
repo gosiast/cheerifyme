@@ -5,8 +5,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "i.scdn.co",
-				pathname: "/image/**",
+				hostname: "**.mzstatic.com", // allows is1-ssl.mzstatic.com, is2-ssl.mzstatic.com, etc.
 			},
 		],
 	},

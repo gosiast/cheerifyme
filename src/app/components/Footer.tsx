@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<footer className="text-center text-sm mt-10 text-gray-700">
+		<footer className="text-center text-sm my-3 text-gray-700">
 			<p className=" mx-auto bg-white/60 backdrop-blur p-4 rounded-xl">
 				If you’re struggling with mental health, please reach out to a
 				professional. You’re not alone —{" "}

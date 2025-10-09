@@ -1,22 +1,28 @@
-import { Inter } from "next/font/google";
 import "./styles/globals.css";
-import { ReactNode } from "react";
+import type { Metadata } from "next";
+import Footer from "./components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
+export const metadata: Metadata = {
 	title: "Cheerify.me",
-	description: "Your go-to app to improve your mood!",
+	description: "Your mindful companion for music, positivity, and inspiration.",
 };
 
-interface RootLayoutProps {
-	children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className="flex flex-col min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 text-gray-800">
+				{/* Main content area */}
+				<main className="flex-1 flex flex-col items-center justify-center p-6">
+					{children}
+				</main>
+
+				{/* Footer sticks to bottom */}
+				<Footer />
+			</body>
 		</html>
 	);
 }

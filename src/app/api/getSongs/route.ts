@@ -1,56 +1,28 @@
+import { MOOD_GENRE_MAP } from "@/utils/mood_genre";
+import { NextResponse } from "next/server";
+
 export async function GET(request: Request) {
-	const { searchParams } = new URL(request.url);
-	const mood = searchParams.get("mood") || "happy";
-
 	try {
-		// 1. Get a Spotify access token
-		const tokenResponse = await fetch(
-			"http://localhost:3000/api/getSpotifyToken"
-		);
-		const tokenData = await tokenResponse.json();
-		const token = tokenData.access_token;
-		if (!token) throw new Error("Missing Spotify token");
+		const { searchParams } = new URL(request.url);
+		const mood = searchParams.get("mood")?.toLowerCase() || "happy";
 
-		// 2. Pick some seed genres (you can map moods to genres)
-		const moodToGenres: Record<string, string[]> = {
-			happy: ["pop", "dance", "funk"],
-			sad: ["acoustic", "piano", "blues"],
-			motivated: ["rock", "hip-hop", "workout"],
-			chill: ["chill", "ambient", "lofi"],
-			romantic: ["soul", "rnb", "pop"],
-		};
+		const moodData = MOOD_GENRE_MAP[mood] || MOOD_GENRE_MAP["other"];
+		const randomQuery =
+			moodData.keywords[Math.floor(Math.random() * moodData.keywords.length)];
+		const limit = 12;
 
-		const seed_genres = moodToGenres[mood] || ["pop"];
-
-		// 3. Call Spotify recommendations endpoint
-		const recRes = await fetch(
-			`https://api.spotify.com/v1/recommendations?limit=5&seed_genres=${seed_genres.join(
-				","
-			)}`,
-			{
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			}
+		const res = await fetch(
+			`https://itunes.apple.com/search?term=${encodeURIComponent(
+				randomQuery
+			)}&media=music&limit=${limit}&entity=song`
 		);
 
-		if (!recRes.ok) {
-			const errorBody = await recRes.text();
-			console.error("❌ Spotify API error:", recRes.status, errorBody);
-			throw new Error(`Spotify recommendations failed (${recRes.status})`);
-		}
+		if (!res.ok) throw new Error(`iTunes API failed with status ${res.status}`);
 
-		const recData = await recRes.json();
-
-		return new Response(JSON.stringify(recData), {
-			status: 200,
-			headers: { "Content-Type": "application/json" },
-		});
-	} catch (error) {
-		console.error("Error in /api/getSongs:", error);
-		return new Response(JSON.stringify({ error: "Failed to fetch songs" }), {
-			status: 500,
-			headers: { "Content-Type": "application/json" },
-		});
+		const data = await res.json();
+		return NextResponse.json(data);
+	} catch (err: any) {
+		console.error("Error in /api/getSongs:", err);
+		return NextResponse.json({ error: err.message }, { status: 500 });
 	}
 }

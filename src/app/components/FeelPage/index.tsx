@@ -1,10 +1,22 @@
+"use client";
 import MoodMusicRecommender from "../MoodMusicRecommender";
+import { Button } from "@/components/ui/button";
 
-export default function FeelPage() {
+interface FeelPageProps {
+	onBack: () => void;
+}
+
+export default function FeelPage({ onBack }: FeelPageProps) {
 	return (
-		<main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0E2A47] to-[#174C61] text-white p-6">
-			<h1 className="text-4xl font-bold mb-8">Your Mood, Your Music 🎶</h1>
+		<div className="flex flex-col items-center w-full animate-fade-in">
 			<MoodMusicRecommender />
-		</main>
+
+			<Button
+				onClick={onBack}
+				className="mt-8 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-all duration-300"
+			>
+				← Back to Home
+			</Button>
+		</div>
 	);
 }

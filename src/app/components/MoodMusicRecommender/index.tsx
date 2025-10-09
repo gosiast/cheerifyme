@@ -4,11 +4,12 @@ import Image from "next/image";
 import { useState, FormEvent } from "react";
 
 interface Track {
-	id: string;
-	name: string;
-	artists: { name: string }[];
-	album?: { images?: { url: string }[] };
-	external_urls?: { spotify: string };
+	trackId: number;
+	trackName: string;
+	artistName: string;
+	artworkUrl100: string;
+	previewUrl?: string;
+	trackViewUrl?: string;
 }
 
 const MoodMusicRecommender: React.FC = () => {
@@ -24,20 +25,18 @@ const MoodMusicRecommender: React.FC = () => {
 		setError(null);
 
 		try {
-			// Fetch quote
 			const quoteRes = await fetch(`/api/getQuote?mood=${mood}`);
 			const quoteData = await quoteRes.json();
 			setQuote(quoteData[0]?.quote || "No quote found.");
 
-			// Fetch songs
 			const songRes = await fetch(`/api/getSongs?mood=${mood}`);
 			const songData = await songRes.json();
 
-			if (!songData.tracks?.items) throw new Error("No tracks found.");
-			setTracks(songData.tracks.items);
+			if (!songData.results) throw new Error("No songs found.");
+			setTracks(songData.results);
 		} catch (err: any) {
 			console.error("Error fetching data:", err);
-			setError("Something went wrong while fetching data.");
+			setError("Something went wrong. Try again later.");
 			setTracks([]);
 		} finally {
 			setLoading(false);
@@ -45,12 +44,12 @@ const MoodMusicRecommender: React.FC = () => {
 	};
 
 	return (
-		<div className="w-full max-w-lg flex flex-col items-center justify-center text-center p-4 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md">
+		<div className="w-full max-w-2xl flex flex-col items-center justify-center text-center p-6 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md">
 			<form
 				onSubmit={handleSubmit}
 				className="mb-6 flex flex-col items-center w-full"
 			>
-				<h2 className="text-2xl font-semibold mb-4 text-gray-100">
+				<h2 className="text-2xl font-semibold mb-4 text-black/80">
 					How do you feel today? 🎭
 				</h2>
 
@@ -61,11 +60,30 @@ const MoodMusicRecommender: React.FC = () => {
 					required
 				>
 					<option value="">Select your mood</option>
-					{["Happy", "Sad", "Motivated", "Chill", "Romantic"].map((m) => (
-						<option key={m} value={m.toLowerCase()}>
-							{m}
-						</option>
-					))}
+
+					<optgroup label="😊 Positive">
+						<option value="happy">Happy</option>
+						<option value="excited">Excited</option>
+						<option value="motivated">Motivated</option>
+						<option value="confident">Confident</option>
+					</optgroup>
+
+					<optgroup label="😌 Calm / Neutral">
+						<option value="calm">Calm</option>
+						<option value="chill">Chill</option>
+						<option value="reflective">Reflective</option>
+					</optgroup>
+
+					<optgroup label="😢 Emotional / Negative">
+						<option value="sad">Sad</option>
+						<option value="lonely">Lonely</option>
+						<option value="angry">Angry</option>
+						<option value="anxious">Anxious</option>
+					</optgroup>
+
+					<optgroup label="🎭 Other">
+						<option value="other">Mixed Feelings</option>
+					</optgroup>
 				</select>
 
 				<button
@@ -79,48 +97,53 @@ const MoodMusicRecommender: React.FC = () => {
 				</button>
 			</form>
 
-			{/* Error message */}
 			{error && <p className="text-red-400 mb-4">{error}</p>}
-
-			{/* Quote */}
 			{quote && <p className="text-lg italic mb-4 text-gray-200">{quote}</p>}
 
-			{/* Song list */}
 			{tracks.length > 0 && (
-				<div className="grid gap-4 text-left w-full">
-					{tracks.map((track) => (
-						<div
-							key={track.id}
-							className="flex items-center gap-4 p-3 bg-gray-800/50 rounded-lg"
-						>
-							{track.album?.images?.[0]?.url && (
+				<div className="relative w-full">
+					{/* Horizontal scroll area */}
+					<div
+						className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth"
+						style={{ scrollbarWidth: "none" }}
+					>
+						{tracks.map((track) => (
+							<div
+								key={track.trackId}
+								className="flex-shrink-0 w-64 snap-center bg-gray-800/60 rounded-xl p-4 flex flex-col items-center shadow-lg hover:scale-105 transition-transform duration-300"
+							>
 								<Image
-									src={track.album.images[0].url}
-									alt={track.name}
-									width={64}
-									height={64}
-									className="rounded-md"
+									src={track.artworkUrl100}
+									alt={track.trackName}
+									width={100}
+									height={100}
+									className="rounded-lg mb-3 h-auto"
 								/>
-							)}
-
-							<div>
-								<p className="font-bold text-gray-100">{track.name}</p>
-								<p className="text-sm text-gray-400">
-									{track.artists.map((a) => a.name).join(", ")}
+								<p className="font-bold text-gray-100 text-center line-clamp-2">
+									{track.trackName}
 								</p>
-								{track.external_urls?.spotify && (
+								<p className="text-sm text-gray-400">{track.artistName}</p>
+
+								{track.previewUrl && (
+									<audio controls className="mt-3 w-full">
+										<source src={track.previewUrl} type="audio/mpeg" />
+										Your browser does not support the audio element.
+									</audio>
+								)}
+
+								{track.trackViewUrl && (
 									<a
-										href={track.external_urls.spotify}
+										href={track.trackViewUrl}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-blue-400 text-sm hover:underline"
+										className="text-blue-400 text-sm hover:underline mt-2"
 									>
-										Listen on Spotify
+										View on iTunes
 									</a>
 								)}
 							</div>
-						</div>
-					))}
+						))}
+					</div>
 				</div>
 			)}
 		</div>
