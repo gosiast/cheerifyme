@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState, FormEvent } from "react";
 
@@ -44,10 +45,10 @@ const MoodMusicRecommender: React.FC = () => {
 	};
 
 	return (
-		<div className="w-full max-w-2xl flex flex-col items-center justify-center text-center p-6 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md">
+		<div className="w-full max-w-2xl flex flex-col items-center justify-center text-center p-6 bg-white/20 rounded-2xl shadow-lg backdrop-blur-md">
 			<form
 				onSubmit={handleSubmit}
-				className="mb-6 flex flex-col items-center w-full"
+				className=" flex flex-col items-center w-full"
 			>
 				<h2 className="text-2xl font-semibold mb-4 text-black/80">
 					How do you feel today? 🎭
@@ -86,7 +87,7 @@ const MoodMusicRecommender: React.FC = () => {
 					</optgroup>
 				</select>
 
-				<button
+				<Button
 					type="submit"
 					disabled={loading}
 					className={`${
@@ -94,7 +95,7 @@ const MoodMusicRecommender: React.FC = () => {
 					} text-white px-4 py-2 rounded-md transition duration-300`}
 				>
 					{loading ? "Loading..." : "Cheer Me Up"}
-				</button>
+				</Button>
 			</form>
 
 			{error && <p className="text-red-400 mb-4">{error}</p>}
@@ -110,37 +111,40 @@ const MoodMusicRecommender: React.FC = () => {
 						{tracks.map((track) => (
 							<div
 								key={track.trackId}
-								className="flex-shrink-0 w-64 snap-center bg-gray-800/60 rounded-xl p-4 flex flex-col items-center shadow-lg hover:scale-105 transition-transform duration-300"
+								className="flex-shrink-0 w-64 snap-center bg-gray-900/80 rounded-xl shadow-lg overflow-hidden"
 							>
-								<Image
-									src={track.artworkUrl100}
-									alt={track.trackName}
-									width={100}
-									height={100}
-									className="rounded-lg mb-3 h-auto"
-								/>
-								<p className="font-bold text-gray-100 text-center line-clamp-2">
-									{track.trackName}
-								</p>
-								<p className="text-sm text-gray-400">{track.artistName}</p>
+								{/* inner wrapper that scales */}
+								<div className="p-4 flex flex-col items-center transition-transform duration-300 hover:scale-105">
+									<Image
+										src={track.artworkUrl100}
+										alt={track.trackName}
+										width={100}
+										height={100}
+										className="rounded-lg my-1 h-auto"
+									/>
+									<p className="font-bold text-gray-100 text-center line-clamp-2">
+										{track.trackName}
+									</p>
+									<p className="text-sm text-gray-400">{track.artistName}</p>
 
-								{track.previewUrl && (
-									<audio controls className="mt-3 w-full">
-										<source src={track.previewUrl} type="audio/mpeg" />
-										Your browser does not support the audio element.
-									</audio>
-								)}
+									{track.previewUrl && (
+										<audio controls className="mt-3 w-full">
+											<source src={track.previewUrl} type="audio/mpeg" />
+											Your browser does not support the audio element.
+										</audio>
+									)}
 
-								{track.trackViewUrl && (
-									<a
-										href={track.trackViewUrl}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="text-blue-400 text-sm hover:underline mt-2"
-									>
-										View on iTunes
-									</a>
-								)}
+									{track.trackViewUrl && (
+										<a
+											href={track.trackViewUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-blue-400 text-sm hover:underline mt-2"
+										>
+											View on iTunes
+										</a>
+									)}
+								</div>
 							</div>
 						))}
 					</div>

@@ -1,11 +1,9 @@
 export default function Footer() {
 	return (
-		<footer className="text-center text-sm my-3 text-gray-700">
-			<p className=" mx-auto bg-white/60 backdrop-blur p-4 rounded-xl">
+		<footer className="text-center text-sm text-gray-700">
+			<p className=" mx-auto bg-white/60 backdrop-blur p-4 text-sm">
 				If you’re struggling with mental health, please reach out to a
-				professional. You’re not alone —{" "}
-				<strong>asking for help is strength 💪</strong>
-				<br />
+				professional -{" "}
 				<a
 					href="https://www.thecalmzone.net/international-mental-health-charities"
 					target="_blank"
@@ -14,8 +12,10 @@ export default function Footer() {
 				>
 					Mental Health Charities
 				</a>
+				. You’re not alone — <strong>asking for help is strength 💪</strong>
+				<br />
 			</p>
-			<p className="mt-4">
+			<p className="my-1 text-sm">
 				Built with ❤️ by{" "}
 				<a
 					href="https://github.com/gosiast"
