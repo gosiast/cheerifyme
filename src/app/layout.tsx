@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 export const metadata: Metadata = {
 	title: "Cheerify.me",
 	description: "Your mindful companion for music, positivity, and inspiration.",
+	icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
